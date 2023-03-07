@@ -10,7 +10,8 @@ class Controlador_Cadastros():
                             Cadastro("Amazon", "website de compras", "Estados Unidos", 1200000000),
                             Cadastro("Messi", "jogador de futebol", "Argentina", 43493385),
                             Cadastro("Pele", "jogador de futebol", "Brasil", 24468352),
-                            Cadastro("luigi", "ruivo", "Brasil", 1750000)]
+                            Cadastro("luigi", "ruivo", "Brasil", 1750000),
+                            Cadastro("Github", "website de versionamento de código", "Estados unidos", 80)]
         self.__tela = TelaCadastros()
 
     def menu(self):

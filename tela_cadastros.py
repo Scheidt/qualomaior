@@ -10,7 +10,7 @@ class TelaCadastros():
         string = string + "2: Listar as opções já inscritas (incluindo número de pesquisas) \n"
         string = string + "3: Incluir uma nova opção \n"
         string = string + "4: Excluir uma das opções já inscritas \n"
-        string = string + "5: Listar as opções já inscritas \n"
+        string = string + "5: Jogar \n"
         string = string + "0: Sair \n"
         string = string + "INSIRA O NÚMERO DA OPÇÃO DESEJADA OU 0 PARA CANCELAR:\n"
         print (string)
@@ -44,7 +44,7 @@ class TelaCadastros():
         if pesquisasTbm:
             for numcadastro in range(len(buffer)):
                 bufferString = bufferString + f"CADASTRO {numcadastro + 1}\n"
-                bufferString = bufferString + f"NOME {buffer[numcadastro['nome']]}\n"
+                bufferString = bufferString + f"NOME {buffer[numcadastro]['nome']}\n"
                 bufferString = bufferString + f"DESCRIÇÃO: {buffer[numcadastro]['descricao']}\n"
                 bufferString = bufferString + f"PAÍS: {buffer[numcadastro]['pais']}\n"
                 bufferString = bufferString + f"PESQUISAS: {buffer[numcadastro]['pesquisas']}\n \n"
@@ -52,7 +52,7 @@ class TelaCadastros():
         else:
             for numcadastro in range(len(buffer)):
                 bufferString = bufferString + f"CADASTRO {numcadastro + 1}\n"
-                bufferString = bufferString + f"DESCRIÇÃO: {buffer[numcadastro]['nome']} é {buffer[numcadastro]['descricao']}, localizado(a)/nascido(a) no {buffer[numcadastro]['pais']}\n \n"
+                bufferString = bufferString + f"DESCRIÇÃO: {buffer[numcadastro]['nome']} é um(a)/o(a) {buffer[numcadastro]['descricao']}, localizado(a)/nascido(a) no {buffer[numcadastro]['pais']}\n \n"
             print (bufferString)
 
     def pega_nome(self):
@@ -61,14 +61,14 @@ class TelaCadastros():
   
     def jogar(self, buffer: list):
         melhor = None
+        bufferString = '\n'*5
         if buffer[0]['pesquisas'] > buffer[1]['pesquisas']:
             melhor = 1
         else:
             melhor = 2
         for numcadastro in range(len(buffer)):
             bufferString = bufferString + f"CADASTRO {numcadastro + 1}\n"
-            bufferString = bufferString + f"DESCRIÇÃO: {buffer[numcadastro]['descricao']}\n"
-            bufferString = bufferString + f"PAÍS: {buffer[numcadastro]['pais']}\n"
+            bufferString = bufferString + f"DESCRIÇÃO: {buffer[numcadastro]['nome']} é um(a)/o(a) {buffer[numcadastro]['descricao']}, localizado(a)/nascido(a) no {buffer[numcadastro]['pais']}\n"  
         print (bufferString)
         escolha = input("INSIRA O NÚMERO DO CADASTRO QUE VOCÊ ACREDITA TER MAIS PESQUISAS: ")
         escolha = self.testar_inteiro(escolha) # Cancelar é None
